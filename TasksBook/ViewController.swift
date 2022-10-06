@@ -9,11 +9,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var taskCodes = tasks
+    
+    @IBOutlet weak var taskTextLabel: UILabel!
+    @IBOutlet weak var promtTextLabel: UILabel!
+    
+    @IBOutlet weak var getPromtButton: UIButton!
+    @IBOutlet weak var getTaskButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
-
+    @IBAction func getTask(_ sender: Any) {
+        let task = taskCodes.randomElement()
+        taskTextLabel.text = task?.key
+        promtTextLabel.text = task?.value
+        promtTextLabel.isHidden = true
+    }
+    @IBAction func getPromt(_ sender: UIButton) {
+        promtTextLabel.isHidden = false
+    }
+    
 }
 
